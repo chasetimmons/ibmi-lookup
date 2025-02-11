@@ -1,0 +1,60 @@
+      *********************************************************************
+      *   DSPF: LOOKUPD                                                   *
+      *   DATE: 250204  BY: CTIMMONS                                      *
+      *********************************************************************
+     A                                      DSPSIZ(*DS3)
+     A                                      CHGINPDFT(UL CS)
+     A                                      PRINT
+     A                                      INDARA
+     A                                      CF01(01 'F1=Help')
+     A                                      CF03(03 'F3=Exit')
+     A*                                     CF06(06 'F6=Go')
+      *********************************************************************
+     A          R F01
+     A                                      OVERLAY
+     A                                  1  2'LOOKUP'
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                  2  2USER
+     A                                  2 72TIME
+     A                                  2 34'File Lookup'
+     A                                      DSPATR(HI)
+     A                                  3  2'                                  -
+     A                                                                         -
+     A                                               '
+     A                                      DSPATR(RI)
+     A                                      COLOR(BLU)
+     A*
+     A                                  5  4'Key:'
+     A            FILE           2A  B    +2
+     A  61                                  DSPATR(RI PC)
+     A            CODE           3A  B    +1
+     A  61                                  DSPATR(RI PC)
+     A            MESG          50A  O    +3
+     A  61                                  COLOR(RED)
+     A*
+     A  62                              8  8'Common Files:'
+     A  62                                  DSPATR(UL)
+     A  62                                  COLOR(YLW)
+     A  62                              9  8'01 - Companies'
+     A  62                             10  8'02 - Departments'
+     A  62                             11  8'03 - Products'
+     A  62                             12  8'04 - Widgets'
+     A  62                             13  8'05 - Stuff'
+     A  62                              6  8'FILE'
+     A  62                                  COLOR(YLW)
+     A  62                                +1'TABLE'
+     A  62                                  COLOR(YLW)
+      *********************************************************************
+      *   FOOTER                                                          *
+      *********************************************************************
+     A          R F02
+     A                                 23  2'                                  -
+     A                                                                         -
+     A                                               '
+     A                                      DSPATR(RI)
+     A                                      COLOR(BLU)
+     A                                 24  3'F1=Help'
+     A                                    +3'F3=Exit'
+     A* 60                                +3'F6=Go'
+     A* 60                                  DSPATR(HI PC)
